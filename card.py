@@ -15,10 +15,9 @@ def create1():
     words = tkinter.Message(top,pady=3,text="Insert quote here")
     words.pack()
     words.place(x = 275, y = 625)
-def Repeat(pic,words):
+def Repeat(pic):
     pic.grid_remove()
-    words.lower()
-    create1()
+    #create1()
 def Return():#goes back to menu
     pic.lower()
     words.lower()
@@ -53,10 +52,9 @@ go.pack()
 go.place(x = 275, y = 350)
 pic = tkinter.Label(top,text="Insert Image here")
 words = tkinter.Message(top,pady=3,text="Insert quote here")
-another = tkinter.Button(master = back, text="Repeat", command=Repeat(pic,words))
+another = tkinter.Button(master = back, text="Repeat", command=Repeat(pic))
 another.grid(row=0,column=0)
-pic.grid_remove()
-words.grid_remove()
 another.destroy()
 
 top.mainloop()
+
