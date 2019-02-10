@@ -1,6 +1,8 @@
 import tkinter
-import Hackbu_2019_Scrape_Valentines_Quotes
+#import Hackbu_2019_Scrape_Valentines_Quotes
+from csv import writer, reader
 from PIL import Image
+import random
 def Start():#goes from menu to card
 	name1 = reciever.get()
 	name2 = gifter.get()
@@ -11,11 +13,14 @@ def Start():#goes from menu to card
 	go.destroy()
 	create1()
 def create1():
-	with open("valentines-quotes.csv", "r") as file:
+	with open("valentines_quotes.csv", "r") as file:
 		csv_reader = reader(file)
-		quote = [row for num,row in enumerate(csv_reader) if num in (rand() % 30)]
-	num = rand() % 3
+		for i in range(random.randint(0,29)):
+			next(csv_reader)
+		quote = next(csv_reader)
+	num = str(random.randint(1,3))
 	pngfile = Image.open(num+".png")
+	print(num)
 	pic = tkinter.Label(top,image=pngfile)
 	pic.pack()
 	pic.place(x = 275,y = 225)
