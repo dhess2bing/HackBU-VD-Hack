@@ -1,7 +1,6 @@
 import tkinter
-#import Hackbu_2019_Scrape_Valentines_Quotes
 from csv import writer, reader
-from PIL import Image
+from PIL import Image, ImageTk
 import random
 def Start():#goes from menu to card
 	name1 = reciever.get()
@@ -20,14 +19,16 @@ def create1():
 		quote = next(csv_reader)
 	num = str(random.randint(1,3))
 	pngfile = Image.open(num+".png")
-	print(num)
-	pic = tkinter.Label(top,image=pngfile)
+	resized = pngfile.resize((650,580),Image.ANTIALIAS)
+	png = ImageTk.PhotoImage(resized)
+	pic = tkinter.Label(top,image=png,borderwidth=0,highlightthickness=0)
+	pic.image = png
 	pic.pack()
-	pic.place(x = 275,y = 225)
-	text = "To "+name1+"\n\t"+quote+"\nFrom "+name2
-	words = tkinter.Label(top,text= text)
+	pic.place(x = 0,y = 25)
+	text = "To "+name1+"\n\t"+str(quote)+"\nFrom "+name2
+	words = tkinter.Label(top,text= text,borderwidth=0,highlightthickness=0)
 	words.pack()
-	words.place(x = 275, y = 625)
+	words.place(x = 100, y = 625)
 	another.grid()
 def Repeat():
 	pic.destroy()
