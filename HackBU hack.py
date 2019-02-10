@@ -19,10 +19,14 @@ def create1():
     another.grid()
     menu = tkinter.Button(master = top,text="Return",command = Return)
     menu.pack()
+
+    
 def Repeat(pic,words):
     pic.destroy()
     words.destroy()
     create1()
+
+    
 def Return():#goes back to menu
     pic.destroy()
     words.destroy()
@@ -43,6 +47,8 @@ def Return():#goes back to menu
     go = tkinter.Button(top,text="Generate", command=Start)
     go.pack()
     go.place(x = 275, y = 350)
+
+    
 top = tkinter.Tk()
 top.geometry("650x750");
 top.resizable(0,0);
